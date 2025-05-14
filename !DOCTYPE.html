@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Feedback Form</title>
+  <style>
+    /* General Body Styling with Gradient Background */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc); /* Smooth blue to purple gradient */
+      padding: 20px;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Container for the form */
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #4A90E2; /* Primary Blue */
+    }
+
+    /* Form Elements Styling */
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #333;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+    }
+
+    .question {
+      margin-top: 25px;
+    }
+
+    .options label {
+      margin-right: 15px;
+      color: #555;
+    }
+
+    /* Styling for Submit Button */
+    .submit-btn {
+      position: sticky;
+      bottom: 10px;
+      background-color: #4CAF50; /* Green */
+      padding: 15px 30px;
+      margin-top: 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049; /* Darker Green */
+    }
+
+    /* Styling for Results Display */
+    #resultDisplay {
+      margin-top: 30px;
+      background-color: #e6ffe6;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #d4f5d4;
+    }
+
+    .result-item {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    /* Color Palette for Form Elements */
+    .question {
+      background-color: #f1f9ff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #c9e0f9;
+      margin-bottom: 15px;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    /* Additional Form Styling */
+    .options {
+      margin-top: 10px;
+    }
+
+    /* Sticky Submit Button Adjustment */
+    .submit-btn {
+      position: sticky;
+      bottom: 0;
+      background-color: #007bff; /* Blue */
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3; /* Darker Blue */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>FEEDVIVE</h1>
+    <h2>Student Feedback Form</h2>
+    <form id="feedbackForm">
+      <!-- Student Info -->
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" name="studentName" required />
+
+      <label for="prnNo">PRN Number:</label>
+      <input type="text" id="prnNo" name="prnNo" required />
+
+      <label for="courseType">Course Type:</label>
+      <select id="courseType" name="courseType" required>
+        <option value="">--Select--</option>
+        <option value="Degree">Degree</option>
+        <option value="Diploma">Diploma</option>
+      </select>
+
+      <label for="year">Year of Study:</label>
+      <select id="year" name="year" required>
+        <option value="">--Select--</option>
+        <option value="First">First Year</option>
+        <option value="Second">Second Year</option>
+        <option value="Third">Third Year</option>
+        <option value="Final">Final Year</option>
+      </select>
+
+      <!-- Syllabus Questions -->
+      <div class="question">
+        <label>1. The syllabus is clear and easy to understand:</label>
+        <div class="options">
+          <label><input type="radio" name="syllabusClear" value="Strongly Agree" required> Strongly Agree</label>
+          <label><input type="radio" name="syllabusClear" value="Agree"> Agree</label>
+          <label><input type="radio" name="syllabusClear" value="Neutral"> Neutral</label>
+          <label><input type="radio" name="syllabusClear" value="Disagree"> Disagree</label>
+          <label><input type="radio" name="syllabusClear" value="Strongly Disagree"> Strongly Disagree</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>2. The objectives of the course are clearly defined:</label>
+        <div class="options">
+          <label><input type="radio" name="syllabusObjectives" value="Yes" required> Yes</label>
+          <label><input type="radio" name="syllabusObjectives" value="No"> No</label>
+        </div>
+      </div>
+
+      <!-- Teacher Questions -->
+      <div class="question">
+        <label>6. The teacher explains concepts clearly:</label>
+        <div class="options">
+          <label><input type="radio" name="teacherClear" value="Strongly Agree" required> Strongly Agree</label>
+          <label><input type="radio" name="teacherClear" value="Agree"> Agree</label>
+          <label><input type="radio" name="teacherClear" value="Neutral"> Neutral</label>
+          <label><input type="radio" name="teacherClear" value="Disagree"> Disagree</label>
+          <label><input type="radio" name="teacherClear" value="Strongly Disagree"> Strongly Disagree</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>7. The teacher uses real-life examples:</label>
+        <div class="options">
+          <label><input type="radio" name="teacherExamples" value="Always" required> Always</label>
+          <label><input type="radio" name="teacherExamples" value="Sometimes"> Sometimes</label>
+          <label><input type="radio" name="teacherExamples" value="Rarely"> Rarely</label>
+          <label><input type="radio" name="teacherExamples" value="Never"> Never</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>8. Teacher uses tech and resources well:</label>
+        <div class="options">
+          <label><input type="radio" name="teacherTechUse" value="Yes" required> Yes</label>
+          <label><input type="radio" name="teacherTechUse" value="No"> No</label>
+        </div>
+      </div>
+
+      <!-- Cultural Event -->
+      <div class="question">
+        <label>10. Did you attend the last cultural event?</label>
+        <div class="options">
+          <label><input type="radio" name="attendedCultural" value="Yes" required> Yes</label>
+          <label><input type="radio" name="attendedCultural" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>11. How was your experience at the cultural event?</label>
+        <div class="options">
+          <label><input type="radio" name="culturalExperience" value="Excellent" required> Excellent</label>
+          <label><input type="radio" name="culturalExperience" value="Good"> Good</label>
+          <label><input type="radio" name="culturalExperience" value="Average"> Average</label>
+          <label><input type="radio" name="culturalExperience" value="Poor"> Poor</label>
+        </div>
+      </div>
+
+      <!-- Sports Event -->
+      <div class="question">
+        <label>12. Did you participate in any sports event?</label>
+        <div class="options">
+          <label><input type="radio" name="sportsParticipation" value="Yes" required> Yes</label>
+          <label><input type="radio" name="sportsParticipation" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>13. How would you rate the sports facilities?</label>
+        <div class="options">
+          <label><input type="radio" name="sportsFacilities" value="Excellent" required> Excellent</label>
+          <label><input type="radio" name="sportsFacilities" value="Good"> Good</label>
+          <label><input type="radio" name="sportsFacilities" value="Average"> Average</label>
+          <label><input type="radio" name="sportsFacilities" value="Poor"> Poor</label>
+        </div>
+      </div>
+
+      <!-- Female Environment -->
+      <div class="question">
+        <label>14. Do you feel safe in the college environment?</label>
+        <div class="options">
+          <label><input type="radio" name="femaleSafety" value="Yes" required> Yes</label>
+          <label><input type="radio" name="femaleSafety" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>15. Are the facilities for female students satisfactory?</label>
+        <div class="options">
+          <label><input type="radio" name="femaleFacilities" value="Excellent" required> Excellent</label>
+          <label><input type="radio" name="femaleFacilities" value="Good"> Good</label>
+          <label><input type="radio" name="femaleFacilities" value="Average"> Average</label>
+          <label><input type="radio" name="femaleFacilities" value="Poor"> Poor</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <div id="resultDisplay" style="display: none;">
+      <h2>Submitted Feedback</h2>
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const resultsContainer = document.getElementById("results");
+      const displayContainer = document.getElementById("resultDisplay");
+      resultsContainer.innerHTML = "";
+
+      const labels = {
+        studentName: "Student Name",
+        prnNo: "PRN Number",
+        courseType: "Course Type",
+        year: "Year of Study",
+        syllabusClear: "Syllabus is clear and easy to understand",
+        syllabusObjectives: "Objectives of the course are clearly defined",
+        syllabusSequence: "Course topics are arranged logically",
+        assignmentDeadlines: "Assignment deadlines clearly mentioned",
+        overallSatisfaction: "Overall satisfaction with the syllabus",
+        teacherClear: "Teacher explains concepts clearly",
+        teacherExamples: "Teacher uses real-life examples",
+        teacherTechUse: "Teacher uses technology and resources well",
+        teacherClassroom: "Positive and respectful classroom environment",
+        attendedCultural: "Attended the last cultural event",
+        culturalExperience: "Experience at the cultural event",
+        sportsParticipation: "Participated in sports event",
+        sportsFacilities: "Rating of sports facilities",
+        femaleSafety: "Feeling safe in the college environment",
+        femaleFacilities: "Satisfaction with facilities for female students"
+      };
+
+      for (let [key, value] of formData.entries()) {
+        const label = labels[key] || key;
+        const resultItem = document.createElement("div");
+        resultItem.classList.add("result-item");
+        resultItem.innerHTML = `<strong>${label}:</strong> ${value}`;
+        resultsContainer.appendChild(resultItem);
+      }
+
+      displayContainer.style.display = "block";
+      displayContainer.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
